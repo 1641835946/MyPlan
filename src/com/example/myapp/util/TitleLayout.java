@@ -24,13 +24,14 @@ public class TitleLayout extends LinearLayout{
 		super(context, attrs);
 		final Context mContext = context;
 		LayoutInflater.from(context).inflate(R.layout.title, this);
-		Button titlePlan = (Button) findViewById(R.id.title_plan);
-		Button titleLife = (Button) findViewById(R.id.title_life);
-		Button titleSummary = (Button) findViewById(R.id.title_summary);
+		final Button titlePlan = (Button) findViewById(R.id.title_plan);
+		final Button titleLife = (Button) findViewById(R.id.title_life);
+		final Button titleSummary = (Button) findViewById(R.id.title_summary);
 		titlePlan.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//change color
+            //change color
+			//	titlePlan.setTextColor();
 				Intent intent = new Intent(mContext, PlanActivity.class);
 				mContext.startActivity(intent);
 			}

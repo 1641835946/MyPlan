@@ -25,27 +25,47 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000d;
-        public static final int add_button=0x7f080007;
-        public static final int add_edit=0x7f080006;
-        public static final int add_layout=0x7f080005;
-        public static final int check=0x7f080002;
-        public static final int item_content=0x7f080003;
+        public static final int add_button=0x7f08000a;
+        public static final int add_edit=0x7f080009;
+        public static final int add_layout=0x7f080008;
+        public static final int answer_problem=0x7f08000c;
+        public static final int answer_text=0x7f080012;
+        public static final int cancel_button=0x7f080014;
+        public static final int certain_button=0x7f080013;
+        public static final int check=0x7f080005;
+        public static final int first_text=0x7f08000f;
+        public static final int forget_button=0x7f080004;
+        public static final int future_item=0x7f08001b;
+        public static final int history_item=0x7f08001a;
+        public static final int input_edit=0x7f080002;
+        public static final int item_content=0x7f080006;
         public static final int life_button=0x7f080001;
         public static final int life_edit=0x7f080000;
-        public static final int list_view=0x7f080004;
-        public static final int summary_button=0x7f080009;
-        public static final int summary_edit=0x7f080008;
-        public static final int title_life=0x7f08000a;
-        public static final int title_plan=0x7f08000b;
-        public static final int title_summary=0x7f08000c;
+        public static final int list_view=0x7f080007;
+        public static final int login_button=0x7f080003;
+        public static final int password_item=0x7f08001c;
+        public static final int problem_hint=0x7f08000b;
+        public static final int problem_text=0x7f080011;
+        public static final int second_text=0x7f080010;
+        public static final int set_password_title=0x7f08000e;
+        public static final int submit=0x7f08000d;
+        public static final int summary_button=0x7f080016;
+        public static final int summary_edit=0x7f080015;
+        public static final int title_life=0x7f080017;
+        public static final int title_plan=0x7f080018;
+        public static final int title_summary=0x7f080019;
     }
     public static final class layout {
-        public static final int life_layout=0x7f030000;
-        public static final int plan_item=0x7f030001;
-        public static final int plan_layout=0x7f030002;
-        public static final int summary_layout=0x7f030003;
-        public static final int title=0x7f030004;
+        public static final int future_layout=0x7f030000;
+        public static final int history_layout=0x7f030001;
+        public static final int life_layout=0x7f030002;
+        public static final int login_layout=0x7f030003;
+        public static final int plan_item=0x7f030004;
+        public static final int plan_layout=0x7f030005;
+        public static final int reset_layout=0x7f030006;
+        public static final int set_password_layout=0x7f030007;
+        public static final int summary_layout=0x7f030008;
+        public static final int title=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -53,7 +73,11 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
+        public static final int future=0x7f050004;
         public static final int hello_world=0x7f050001;
+        public static final int history=0x7f050003;
+        public static final int password=0x7f050005;
+        public static final int set_password=0x7f050006;
     }
     public static final class style {
         /** 

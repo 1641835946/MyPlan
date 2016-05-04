@@ -59,7 +59,11 @@ public class TimeDB {
     }
 
     public void savePlan(Plan plan) {
-        if (plan != null) {
+        if (plan.getPlanItem().get(0).getContent() != null) {
+        	//null ""
+        	Log.v("timedb", plan.getPlanItem().get(0).getContent()+"");
+        	if (plan.getPlanItem().get(0).getContent().equals("null"))
+        		Log.v("plan.getPlanItem().get(0).getContent()","== null");
             ContentValues values = new ContentValues();
             values.put("time", plan.getTime());
             values.put("number", plan.getNumber());

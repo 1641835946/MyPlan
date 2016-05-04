@@ -1,8 +1,11 @@
 package com.example.myapp.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -90,5 +93,29 @@ public class PlanActivity extends Activity implements OnClickListener{
 			timeDB.updatePlan(plan);
 			Log.v("ok","update");
 		}	
+	}
+	
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.history_item:
+			Intent intentHistory = new Intent(this, HistoryActivity.class);
+			startActivity(intentHistory);
+			break;
+		case R.id.future_item:
+			Intent intentFuture = new Intent(this, FutureActivity.class);
+			startActivity(intentFuture);
+			break;
+		case R.id.password_item:
+			Intent intentPassword = new Intent(this, SetPasswordActivity.class);
+			startActivity(intentPassword);
+			break;
+		default:
+		}
+		return true;
 	}
 }

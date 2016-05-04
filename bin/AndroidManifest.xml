@@ -16,7 +16,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name=".activity.PlanActivity"
+        <activity android:name=".activity.LogInActivity"
             android:launchMode="singleTask"
             android:label="Plan">
             <intent-filter>
@@ -29,6 +29,22 @@
             android:launchMode="singleTask"></activity>
         <activity 
             android:name="com.example.myapp.activity.LifeActivity"
+            android:launchMode="singleTask"></activity>
+        <activity 
+            android:name="com.example.myapp.activity.FutureActivity"
+            android:launchMode="singleTask"></activity>
+        <activity 
+            android:name="com.example.myapp.activity.HistoryActivity"
+            android:launchMode="singleTask"></activity>
+        <activity 
+            android:name="com.example.myapp.activity.PlanActivity"
+            android:launchMode="singleTask"></activity>
+        <activity 
+            android:name="com.example.myapp.activity.ResetActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:launchMode="singleTask"></activity>
+        <activity 
+            android:name="com.example.myapp.activity.SetPasswordActivity"
             android:launchMode="singleTask"></activity>
         <receiver 
             android:name=".BootCompleteReceiver">

@@ -38,11 +38,12 @@ public class SummaryActivity extends Activity {
         summary = timeDB.loadSummary(CurrentTime.getTime());
         edit.setText(summary.getConclusion());
         saveButton = (Button) findViewById(R.id.summary_button);
+        saveButton.setText("±à¼­");
         saveButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if (saveButton.getText().toString() != "±£´æ") {
+				if (saveButton.getText().toString() == "±à¼­") {
 					//saveButton.getText().toString()  ÊÇ±à¼­
 					//¿ÉÊÇsaveButton.getText().toString() == "±à¼­"Îªfalse
 					saveButton.setText("±£´æ"); 

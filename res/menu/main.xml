@@ -3,9 +3,15 @@
     tools:context="com.example.myapp.MainActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/history_item"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/history"/>
+    <item 
+        android:id="@+id/future_item"
+        android:title="@string/future"/>
+    <item
+        android:id="@+id/password_item"
+        android:title="@string/password"/>
 
 </menu>
