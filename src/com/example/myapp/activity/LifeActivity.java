@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -55,7 +56,6 @@ public class LifeActivity extends Activity {
 					edit.requestFocus();
 					needSave = true;
 				} else {
-					if (saveButton.getText().toString() == "保存") 
 					saveButton.setText("编辑");
 					edit.setFocusable(false);
 					saveButton.requestFocus();
@@ -77,48 +77,74 @@ public class LifeActivity extends Activity {
 		}	
 	}
 	
-	@Override
-	public void onBackPressed() {
-		// TODO Auto-generated method stub
-		//super.onBackPressed();
-		if (needSave) {
-			alertDialog();
-			finish();
-			Log.v("onBackPressed","save");
-		}
-	}
+//	@Override
+//	public void onBackPressed() {
+//		// TODO Auto-generated method stub
+////		super.onBackPressed();
+//		if (needSave) {
+//			alertDialog();
+//			finish();
+//			Log.v("onBackPressed","save");
+//		}
+//		super.onBackPressed();
+//	}
+//	05-04 11:44:55.694: E/WindowManager(898): Activity com.example.myapp.activity.LifeActivity has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@410b3ce0 that was originally added here
+
 	
-	@Override
-	protected void onPause() {
-		//super.onPause();
-        if (needSave) {
-			alertDialog();
-			finish();
-		}
-        Log.v("onPause","save");
-	}
-	
+//	@Override
+//	protected void onPause() {
+////		super.onPause();
+//        if (needSave) {
+//			alertDialog();
+//			finish();
+//		}
+//        Log.v("onPause","save");
+//	}
+//	05-04 11:47:24.434: E/AndroidRuntime(945): android.app.SuperNotCalledException: Activity {com.example.myapp/com.example.myapp.activity.LifeActivity} did not call through to super.onPause()
+
+//	@Override
+//	protected void onPause() {
+//        if (needSave) {
+//			alertDialog();
+//			finish();
+//		}
+//        super.onPause();
+//        Log.v("onPause","save");
+//	}
+//	05-04 11:50:25.174: E/WindowManager(994): Activity com.example.myapp.activity.LifeActivity has leaked window com.android.internal.policy.impl.PhoneWindow$DecorView@410ab928 that was originally added here
+
+
 	public void alertDialog() {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
 		dialog.setTitle("提醒");
 		dialog.setMessage("保存吗？");
-		dialog.setCancelable(false);
+		dialog.setCancelable(true);
 		dialog.setPositiveButton("当然", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				save();
+				finish();
 			}
 		});
 		dialog.setNegativeButton("不用", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
-				
+				finish();
 			}
 		});
 		dialog.show();
 	}
+	
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) { 
+         if (keyCode == KeyEvent.KEYCODE_BACK && needSave) {   
+            alertDialog();   
+            return true;   
+         }
+         return super.onKeyDown(keyCode, event); 
+    } 
 	
 	@Override
 	protected void onDestroy() {

@@ -7,8 +7,11 @@ import com.example.myapp.util.CurrentTime;
 import com.example.myapp.util.TimeApplication;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -26,6 +29,8 @@ public class SummaryActivity extends Activity {
 	private TimeDB timeDB = TimeDB.getInstance(TimeApplication.getContext());
 	
 	private Summary summary;
+	
+	private boolean needSave = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +55,21 @@ public class SummaryActivity extends Activity {
 					edit.setFocusable(true);
 					edit.setFocusableInTouchMode(true);
 					edit.requestFocus();
+					needSave = true;
 				} else {
 					saveButton.setText("编辑");
 					edit.setFocusable(false);
 					saveButton.requestFocus();
-					summary.setTime(CurrentTime.getTime());
-					summary.setConclusion(edit.getText().toString());
 					save();
+					needSave = false;
 				}
 			}        	
         });
 	}
 
 	private void save() {
+		summary.setTime(CurrentTime.getTime());
+		summary.setConclusion(edit.getText().toString());
 		if (timeDB.loadSummary(CurrentTime.getTime()).getConclusion() == null) {
 			timeDB.saveSummary(summary);
 		}
@@ -70,6 +77,38 @@ public class SummaryActivity extends Activity {
 			timeDB.updateSummary(summary);
 		}	
 	}
+	
+	public void alertDialog() {
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+		dialog.setTitle("提醒");
+		dialog.setMessage("保存吗？");
+		dialog.setCancelable(true);
+		dialog.setPositiveButton("当然", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				save();
+				finish();
+			}
+		});
+		dialog.setNegativeButton("不用", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+		dialog.show();
+	}
+	
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) { 
+         if (keyCode == KeyEvent.KEYCODE_BACK && needSave) {   
+            alertDialog();   
+            return true;   
+         }
+         return super.onKeyDown(keyCode, event); 
+    } 
 	
 	@Override
 	protected void onDestroy() {
