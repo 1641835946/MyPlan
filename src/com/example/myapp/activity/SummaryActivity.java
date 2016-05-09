@@ -101,11 +101,17 @@ public class SummaryActivity extends Activity {
 		dialog.show();
 	}
 	
+//	public void verifyNeedSave() {
+//		if (needSave) {   
+//            alertDialog();     
+//        }
+//	}
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) { 
          if (keyCode == KeyEvent.KEYCODE_BACK && needSave) {   
             alertDialog();   
-            return true;   
+            //return true;   
          }
          return super.onKeyDown(keyCode, event); 
     } 

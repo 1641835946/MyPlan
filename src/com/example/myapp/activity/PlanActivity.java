@@ -3,6 +3,7 @@ package com.example.myapp.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,6 +61,14 @@ public class PlanActivity extends Activity implements OnClickListener{
         	}
         });
     }
+    
+//    public int catchHeight() {
+//    	DisplayMetrics metric = new DisplayMetrics();
+//        ItemAdapter.class.this.getWindowManager().getDefaultDisplay().getMetrics(metric);  
+//        int width = metric.widthPixels;     // ÆÁÄ»¿í¶È£¨ÏñËØ£©  
+//        int height = metric.heightPixels;   // ÆÁÄ»¸ß¶È£¨ÏñËØ£©  
+//        return height;
+//    }
     
     @Override
     public void onClick(View v) {

@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -64,6 +65,9 @@ public class LifeActivity extends Activity {
 				}
 			}        	
         });
+//        AlphaAnimation aa = new AlphaAnimation(0, 1);
+//        aa.setDuration(1000);
+//        saveButton.startAnimation(aa);
 	}
 
 	private void save() {
@@ -137,11 +141,17 @@ public class LifeActivity extends Activity {
 		dialog.show();
 	}
 	
+//	public void verifyNeedSave() {
+//		if (needSave) {   
+//            alertDialog();     
+//        }
+//	}
+	
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) { 
          if (keyCode == KeyEvent.KEYCODE_BACK && needSave) {   
             alertDialog();   
-            return true;   
+            //return true;   
          }
          return super.onKeyDown(keyCode, event); 
     } 

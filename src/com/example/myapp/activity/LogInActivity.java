@@ -30,6 +30,7 @@ public class LogInActivity extends Activity {//setsetset
 		} else {
 			Intent intent = new Intent(this, PlanActivity.class);
 			startActivity(intent);
+			finish();
 		}
 		setContentView(R.layout.login_layout);
 		inputEdit = (EditText) findViewById(R.id.input_edit);

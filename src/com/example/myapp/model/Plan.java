@@ -77,9 +77,24 @@ public class Plan {
     	}
     }
 
+    public void deletePlanItem(int position) {
+        planItem.remove(position);
+        number--;
+        avoidIndexOutOfBoundsException();
+    }
+    
     public void deletePlanItem(Item item) {
         planItem.remove(item);
         number--;
+        avoidIndexOutOfBoundsException();
+    }
+    
+    private void avoidIndexOutOfBoundsException() {
+    	if (number == 0) {
+    		number = 1;
+            Item item = new Item();
+            planItem.add(item);
+    	}
     }
 
     public List<Item> getPlanItem() {
