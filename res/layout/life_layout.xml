@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         ></com.example.myapp.util.TitleLayout>
 
-    <EditText
+    <com.example.myapp.util.MyEditText
         android:id="@+id/life_edit"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,12 +19,28 @@
         android:gravity="top"
         android:hint="happy or sad?"
         android:focusable="false"/>
+        
     
-    <Button
-        android:id="@+id/life_button"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="编辑"
-        android:gravity="center"/>
+        >
+        <Button 
+            android:id="@+id/take_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TakePhoto"/>
+        <Button 
+            android:id="@+id/add_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AddPhoto"/>
+        <Button
+            android:id="@+id/life_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="编辑"
+            android:gravity="center"/>
+    </LinearLayout>
 
 </LinearLayout>

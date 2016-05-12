@@ -75,19 +75,55 @@ public class ItemAdapter extends ArrayAdapter<Item> {
 //        View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         //getContext()?
         mViewHolder = viewHolder;
-        viewHolder.check.setOnCheckedChangeListener( new OnCheckedChangeListener(){
+        viewHolder.check.setOnClickListener( new OnClickListener(){
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onClick(View v) {
     		// TODO Auto-generated method stub
-    		  if (isChecked){
-    			  Log.v("hello",buttonView.getId()+"");
+    		  if (!plan.getPlanItem().get(mPosition).getIsCheck()){
     		      plan.getPlanItem().get(mPosition).setIsCheck(true);
-    		      Log.v("hello","setCheck");
+    		      Item item = plan.getPlanItem().get(mPosition);
+    		      Log.d("hello", mPosition +""+ item.getContent());
+    		      Log.d("hello","删除d位置："+mPosition);
+    		      Log.d("hello", "删除之前的长度："+plan.getPlanItem().size());
+    		      plan.getPlanItem().remove(mPosition);
+    		      Log.d("hello", "删除之后的长度："+plan.getPlanItem().size());
+    		      plan.getPlanItem().add(plan.getPlanItem().size(), item);
+    		      Log.d("hello", "添加之后的长度："+plan.getPlanItem().size());
+    		      notifyDataSetChanged();
     		  } else {
     		      plan.getPlanItem().get(mPosition).setIsCheck(false);
+    		      Item item = plan.getPlanItem().get(mPosition);
+    		      plan.getPlanItem().remove(mPosition);
+    		      plan.getPlanItem().add(0, item);
+    		      notifyDataSetChanged();
     		  }
             }
     	});
+//        viewHolder.check.setOnCheckedChangeListener( new OnCheckedChangeListener(){
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//    		// TODO Auto-generated method stub
+//    		  if (isChecked){
+//    			  Log.v("hello",buttonView.getId()+"");
+//    		      plan.getPlanItem().get(mPosition).setIsCheck(true);
+//    		      Item item = plan.getPlanItem().get(mPosition);
+//    		      Log.d("hello", mPosition +""+ item.getContent());
+//    		      Log.d("hello","删除d位置："+mPosition);
+//    		      Log.d("hello", "删除之前的长度："+plan.getPlanItem().size());
+//    		      plan.getPlanItem().remove(mPosition);
+//    		      Log.d("hello", "删除之后的长度："+plan.getPlanItem().size());
+//    		      plan.getPlanItem().add(plan.getPlanItem().size(), item);
+//    		      Log.d("hello", "添加之后的长度："+plan.getPlanItem().size());
+//    		      notifyDataSetChanged();
+//    		  } else {
+//    		      plan.getPlanItem().get(mPosition).setIsCheck(false);
+//    		      Item item = plan.getPlanItem().get(mPosition);
+//    		      plan.getPlanItem().remove(mPosition);
+//    		      plan.getPlanItem().add(0, item);
+//    		      notifyDataSetChanged();
+//    		  }
+//            }
+//    	});
         
 //view viewHolder difference
         mViewHolder.itemContent.setOnTouchListener(new OnTouchListener() {
@@ -169,6 +205,9 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         viewHolder.check.setChecked(item.getIsCheck());
         Log.v("setChecked",item.getIsCheck()+""+position);
         viewHolder.itemContent.setText(item.getContent());
+        if (item.getIsCheck()) 
+        	viewHolder.itemContent.setTextColor(viewHolder.itemContent.getResources().getColor(R.color.dark_gray));
+        else viewHolder.itemContent.setTextColor(viewHolder.itemContent.getResources().getColor(R.color.black));
         if (item.getContent() == null) {
         	viewHolder.check.setVisibility(View.GONE);
         	viewHolder.itemContent.setVisibility(View.GONE);
