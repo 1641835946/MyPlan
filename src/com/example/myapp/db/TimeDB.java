@@ -73,13 +73,30 @@ public class TimeDB {
             db.insert("Plan", null,values);
         }
     }
+    
+    public long loadTime(int id) {
+		Cursor cursor = null;
+		String minTime = null;//new String[] { "time" }
+		cursor = db.query("Summary", null, "id = ?",
+				new String[] { String.valueOf(id) }, null, null, null);
+		if (cursor.moveToFirst()) {
+			do {
+				minTime = cursor.getString(cursor.getColumnIndex("time"));
+			} while (cursor.moveToNext());
+		}
+		if (cursor != null) {
+			cursor.close();
+		}
+		return Long.valueOf(minTime);
+	}
+
 
     private String saveItem(List<Item> list) {
         String content = null;
         for(int i = 0; i<list.size(); i++) {
             Item item = list.get(i);
             if (i == 0) content = item.getContent() + "|" +item.getIsCheck();
-            //remeber 从零开始数!!!!!
+            //remember 从零开始数!!!!!
             else content = content+ "," + item.getContent() + "|" +item.getIsCheck();
         }
         return content;
@@ -106,7 +123,7 @@ public class TimeDB {
         db.update("Plan", values, "time = ?", new String[] {String.valueOf(plan.getTime())});
     }
 
-    public Life loadLife(double time) {
+    public Life loadLife(long time) {
         //查询
         Cursor cursor = db.query("Life", null, "time = ?", new String[] {String.valueOf(time)},
                 null, null,null);
@@ -123,7 +140,7 @@ public class TimeDB {
         return life;
     }
 
-    public Summary loadSummary(double time) {
+    public Summary loadSummary(long time) {
         Cursor cursor = db.query("Summary", null, "time = ?", new String[] {String.valueOf(time)},
                 null, null,null);
         Summary summary = new Summary();
@@ -139,7 +156,7 @@ public class TimeDB {
         return summary;
     }
 
-    public Plan loadPlan(double time) {
+    public Plan loadPlan(long time) {
         Cursor cursor = db.query("Plan", null, "time = ?", new String[] {String.valueOf(time)},
                 null, null,null);
         Plan plan = Plan.getInstance();
@@ -173,26 +190,40 @@ public class TimeDB {
         }
     }
 
-    public void deleteLife(double time) {
+    public void deleteLife(long time) {
         db.delete("Life", "time = ?", new String[] {String.valueOf(time)});
     }
 
-    public void deleteSummary(double time) {
+    public void deleteSummary(long time) {
         db.delete("Summary", "time = ?", new String[] {String.valueOf(time)});
     }
 
-    public void deletePlan(double time) {
+    public void deletePlan(long time) {
         db.delete("Plan", "time = ?", new String[] {String.valueOf(time)});
     }
     
     public void newDB() {
     	db.execSQL("drop table if exists Plan");
+    	db.execSQL("drop table if exists Summary");
+    	db.execSQL("drop table if exists Life");
+    	
     	String CREATE_PLAN = "create table Plan (" +
                 "id integer primary key autoincrement, " +
                 "time real, " +
                 "number integer, " +
                 "content text)";
-    	db.execSQL(CREATE_PLAN);
+    	String CREATE_SUMMARY = "create table Summary ("
+                + "id integer primary key autoincrement, "
+                + "time real, "
+                + "conclusion text)";
+        String CREATE_LIFE = "create table Life (" +
+                "id integer primary key autoincrement, " +
+                "time real, " +
+                "mood text)" ;
+
+     	  db.execSQL(CREATE_LIFE);
+          db.execSQL(CREATE_PLAN);
+          db.execSQL(CREATE_SUMMARY);
     	//onCreate(db);
     }
 }

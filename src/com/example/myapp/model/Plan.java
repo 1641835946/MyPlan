@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Plan {
 
-    private double time;
+    private long time;
 
     private int number;
 
@@ -22,7 +22,7 @@ public class Plan {
     private static Plan plan;
 
     private Plan() {
-        time = CurrentTime.getTime();
+        time = new CurrentTime().getTime();
         number = 1;
         Item item = new Item();
         planItem.add(item);
@@ -35,11 +35,11 @@ public class Plan {
     	return plan;
     }
 
-    public void setTime(double time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
-    public double getTime() {
+    public long getTime() {
         return time;
     }
 

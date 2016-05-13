@@ -22,7 +22,7 @@ import com.example.myapp.model.Item;
 import com.example.myapp.model.Plan;
 import com.example.myapp.util.ItemAdapter;
 import com.example.myapp.util.CurrentTime;
-import com.example.myapp.util.TimeApplication;
+import com.example.myapp.util.MyApplication;
 
 /**
  * Created by Administrator on 2016/4/30.
@@ -41,11 +41,11 @@ public class PlanActivity extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.plan_layout);
-    	timeDB = TimeDB.getInstance(TimeApplication.getContext());
+    	timeDB = TimeDB.getInstance(MyApplication.getContext());
     	//*******
     	timeDB.newDB();
     	plan = null;
-      	plan = timeDB.loadPlan(CurrentTime.getTime()); 
+      	plan = timeDB.loadPlan(new CurrentTime().getTime()); 
         listView = (ListView) findViewById(R.id.list_view);
         adapter = new ItemAdapter(PlanActivity.this, R.layout.plan_item, plan.getPlanItem());
     	listView.setAdapter(adapter);
@@ -61,14 +61,6 @@ public class PlanActivity extends Activity implements OnClickListener{
         	}
         });
     }
-    
-//    public int catchHeight() {
-//    	DisplayMetrics metric = new DisplayMetrics();
-//        ItemAdapter.class.this.getWindowManager().getDefaultDisplay().getMetrics(metric);  
-//        int width = metric.widthPixels;     // ÆÁÄ»¿í¶È£¨ÏñËØ£©  
-//        int height = metric.heightPixels;   // ÆÁÄ»¸ß¶È£¨ÏñËØ£©  
-//        return height;
-//    }
     
     @Override
     public void onClick(View v) {
@@ -94,7 +86,7 @@ public class PlanActivity extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onPause();
 		
-		if (timeDB.loadPlan(CurrentTime.getTime()).getPlanItem().get(0).getContent() == null) {
+		if (timeDB.loadPlan(new CurrentTime().getTime()).getPlanItem().get(0).getContent() == null) {
 			Log.v("ok","load");
 			timeDB.savePlan(plan);
 		}

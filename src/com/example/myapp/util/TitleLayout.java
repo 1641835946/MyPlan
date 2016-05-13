@@ -32,6 +32,7 @@ public class TitleLayout extends LinearLayout{
 			public void onClick(View v) {
             //change color
 			//	titlePlan.setTextColor();
+				//titlePlan.setTextColor("#90ee90");
 				Intent intent = new Intent(mContext, PlanActivity.class);
 				mContext.startActivity(intent);
 			}

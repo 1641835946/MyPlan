@@ -3,7 +3,7 @@ package com.example.myapp.util;
 import android.app.Application;
 import android.content.Context;
 
-public class TimeApplication extends Application {
+public class MyApplication extends Application {
 	
 	private static Context context;
 	

@@ -5,11 +5,11 @@ package com.example.myapp.model;
  */
 public class Summary {
 
-    private double time;
+    private long time;
 
     private String conclusion;
 
-    public void setTime(double time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
@@ -17,7 +17,7 @@ public class Summary {
         this.conclusion = conclusion;
     }
 
-    public double getTime() {
+    public long getTime() {
         return time;
     }
 

@@ -5,7 +5,7 @@ import com.example.myapp.db.TimeDB;
 import com.example.myapp.model.Life;
 import com.example.myapp.util.CurrentTime;
 import com.example.myapp.util.MyEditText;
-import com.example.myapp.util.TimeApplication;
+import com.example.myapp.util.MyApplication;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -26,6 +26,8 @@ import android.provider.MediaStore.Images.Media;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -42,7 +44,7 @@ public class LifeActivity extends Activity {
 	
 	private Button saveButton;
 	
-	private TimeDB timeDB = TimeDB.getInstance(TimeApplication.getContext());
+	private TimeDB timeDB = TimeDB.getInstance(MyApplication.getContext());
 	
 	private Life life;
 	
@@ -59,7 +61,8 @@ public class LifeActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.life_layout);  
         edit = (MyEditText) findViewById(R.id.life_edit);
-        life = timeDB.loadLife(CurrentTime.getTime());
+        life = null;
+        life = timeDB.loadLife(new CurrentTime().getTime());
         //life.setMood("nothing");
         //edit.setText(life.getMood());
         getImagePath(life.getMood());
@@ -100,6 +103,7 @@ public class LifeActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				saveButton.setText("±£´æ");
 				Intent addPhotoIntent = new Intent("android.intent.action.GET_CONTENT");
 				addPhotoIntent.setType("image/*");
 				startActivityForResult(addPhotoIntent, CHOOSE_PHOTO);
@@ -193,9 +197,9 @@ public class LifeActivity extends Activity {
 
 
 	private void save() {
-		life.setTime(CurrentTime.getTime());
+		life.setTime(new CurrentTime().getTime());
 		life.setMood(edit.getText().toString());
-		if (timeDB.loadLife(CurrentTime.getTime()).getMood() == null) {
+		if (timeDB.loadLife(new CurrentTime().getTime()).getMood() == null) {
 			timeDB.saveLife(life);
 		}
 		else {
@@ -283,5 +287,28 @@ public class LifeActivity extends Activity {
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+	}
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.history_item:
+			Intent intentHistory = new Intent(this, HistoryActivity.class);
+			startActivity(intentHistory);
+			break;
+		case R.id.future_item:
+			Intent intentFuture = new Intent(this, FutureActivity.class);
+			startActivity(intentFuture);
+			break;
+		case R.id.password_item:
+			Intent intentPassword = new Intent(this, SetPasswordActivity.class);
+			startActivity(intentPassword);
+			break;
+		default:
+		}
+		return true;
 	}
 }

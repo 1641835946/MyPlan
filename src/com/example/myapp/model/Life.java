@@ -5,11 +5,11 @@ package com.example.myapp.model;
  */
 public class Life {
 
-    private double time;
+    private long time;
 
     private String mood;
 
-    public double getTime() {
+    public long getTime() {
         return time;
     }
 
@@ -17,7 +17,7 @@ public class Life {
         return mood;
     }
 
-    public void setTime(double time) {
+    public void setTime(long time) {
         this.time = time;
     }
 

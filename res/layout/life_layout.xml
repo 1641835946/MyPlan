@@ -27,18 +27,24 @@
         >
         <Button 
             android:id="@+id/take_photo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="TakePhoto"/>
+            android:layout_weight="1"
+            android:background="#00cde1"
+            android:text="照相"/>
         <Button 
             android:id="@+id/add_photo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="AddPhoto"/>
+            android:background="#00cde1"
+            android:text="添加"/>
         <Button
             android:id="@+id/life_button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:background="#00cde1"
             android:text="编辑"
             android:gravity="center"/>
     </LinearLayout>

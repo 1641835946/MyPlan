@@ -11,8 +11,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Life"
-        android:textColor="#ffffff"
-        android:background="#0066cc"
+        android:background="#00cde1"
+        android:textColor="@drawable/button_font_style"
         />
     
     <Button 
@@ -22,8 +22,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Plan"
-        android:textColor="#ffffff"
-        android:background="#0066cc"
+        android:textColor="@drawable/button_font_style"
+        android:background="#00cde1"
         />
     
     <Button 
@@ -33,8 +33,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Summary"
-        android:textColor="#ffffff"
-        android:background="#0066cc"
+        android:textColor="@drawable/button_font_style"
+        android:background="#00cde1"
         />
     
 </LinearLayout>
