@@ -45,8 +45,11 @@ public class SetPasswordActivity extends Activity {
 							Password.setPasswordProblem(problem.getText().toString());
 							Password.setPasswordAnswer(answer.getText().toString());
 							Toast.makeText(SetPasswordActivity.this, "设置密码成功", Toast.LENGTH_SHORT).show();
-							Intent intent = new Intent(SetPasswordActivity.this, PlanActivity.class);
-							startActivity(intent);
+							Intent intent = new Intent();
+							intent.putExtra("return", "成功");
+							setResult(RESULT_OK, intent);
+							Log.v("return ok", "OK");
+							finish();
 						}
 					}
 				} else {
@@ -60,11 +63,23 @@ public class SetPasswordActivity extends Activity {
 			public void onClick(View v) {
 				Password.hasPassword = false;
 				Toast.makeText(SetPasswordActivity.this, "取消密码成功", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent();
+				intent.putExtra("return", "成功");
+				setResult(RESULT_OK, intent);
+				Log.v("return ok", "fail");
 				finish();
-			}
+				}
 		});
 	}
 
+	@Override
+	public void onBackPressed() {
+		Intent intent  = new Intent();
+		intent.putExtra("return", "Fail");
+		setResult(RESULT_OK,intent);
+		finish();
+	}
+	
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub

@@ -204,26 +204,26 @@ public class TimeDB {
     
     public void newDB() {
     	db.execSQL("drop table if exists Plan");
-    	db.execSQL("drop table if exists Summary");
-    	db.execSQL("drop table if exists Life");
+//    	db.execSQL("drop table if exists Summary");
+//    	db.execSQL("drop table if exists Life");
     	
     	String CREATE_PLAN = "create table Plan (" +
                 "id integer primary key autoincrement, " +
                 "time real, " +
                 "number integer, " +
                 "content text)";
-    	String CREATE_SUMMARY = "create table Summary ("
-                + "id integer primary key autoincrement, "
-                + "time real, "
-                + "conclusion text)";
-        String CREATE_LIFE = "create table Life (" +
-                "id integer primary key autoincrement, " +
-                "time real, " +
-                "mood text)" ;
+//    	String CREATE_SUMMARY = "create table Summary ("
+//                + "id integer primary key autoincrement, "
+//                + "time real, "
+//                + "conclusion text)";
+//        String CREATE_LIFE = "create table Life (" +
+//                "id integer primary key autoincrement, " +
+//                "time real, " +
+//                "mood text)" ;
 
-     	  db.execSQL(CREATE_LIFE);
+//     	  db.execSQL(CREATE_LIFE);
           db.execSQL(CREATE_PLAN);
-          db.execSQL(CREATE_SUMMARY);
+//          db.execSQL(CREATE_SUMMARY);
     	//onCreate(db);
     }
 }

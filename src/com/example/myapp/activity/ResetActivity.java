@@ -6,6 +6,7 @@ import com.example.myapp.model.Password;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,12 +34,26 @@ public class ResetActivity extends Activity {
 			public void onClick(View v) {
 				if (answerProblem.getText().toString().equals(Password.getPasswordAnswer())) {
 					Intent intent = new Intent(ResetActivity.this, SetPasswordActivity.class);
-					startActivity(intent);
+					startActivityForResult(intent, 1);
+					
 				} else {
 					Toast.makeText(ResetActivity.this, "错误，请重新输入", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		switch (requestCode) {
+		case 1:
+			if(resultCode == RESULT_OK) {
+				Log.v("return", data.getStringExtra("return"));
+				if (data.getStringExtra("return").equals("成功"))
+				  finish();
+			}
+		default:
+		}
 	}
 
 }

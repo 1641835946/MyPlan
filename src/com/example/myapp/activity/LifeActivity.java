@@ -90,6 +90,7 @@ public class LifeActivity extends Activity {
 				}
 			}        	
         });
+        
         takePhoto = (Button) findViewById(R.id.take_photo);
         takePhoto.setOnClickListener(new OnClickListener() {
 			@Override

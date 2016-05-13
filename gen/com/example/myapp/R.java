@@ -44,7 +44,9 @@ public final class R {
         public static final int hami_melon=0x7f020009;
         public static final int ic_launcher=0x7f02000a;
         public static final int img_line_point=0x7f02000b;
-        public static final int section_div=0x7f02000c;
+        public static final int lemon=0x7f02000c;
+        public static final int orange=0x7f02000d;
+        public static final int section_div=0x7f02000e;
     }
     public static final class id {
         public static final int add_button=0x7f060014;
@@ -83,9 +85,9 @@ public final class R {
         public static final int title_life=0x7f060021;
         public static final int title_plan=0x7f060022;
         public static final int title_summary=0x7f060023;
-        public static final int txt_date_content=0x7f060004;
+        public static final int txt_date_content=0x7f060005;
         public static final int txt_date_time=0x7f060003;
-        public static final int v_line=0x7f060005;
+        public static final int v_line=0x7f060004;
     }
     public static final class layout {
         public static final int future_layout=0x7f030000;
