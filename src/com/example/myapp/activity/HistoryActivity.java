@@ -46,7 +46,7 @@ public class HistoryActivity extends Activity {
 	private List<HistoryItem> test() {
 		for (int i = 0; i<10; i++) {
 			HistoryItem item = new HistoryItem();
-			item.setSummary("这里是文字内容：" + i + "-" + i);
+			item.setSummary("这里是测试数据：" + i + "-" + i);
 			item.setTimeFormat("2015"+"."+ i + "." +i);
 			list.add(item);
 		}

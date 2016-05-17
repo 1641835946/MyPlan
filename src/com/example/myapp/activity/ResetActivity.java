@@ -35,7 +35,6 @@ public class ResetActivity extends Activity {
 				if (answerProblem.getText().toString().equals(Password.getPasswordAnswer())) {
 					Intent intent = new Intent(ResetActivity.this, SetPasswordActivity.class);
 					startActivityForResult(intent, 1);
-					
 				} else {
 					Toast.makeText(ResetActivity.this, "错误，请重新输入", Toast.LENGTH_SHORT).show();
 				}
@@ -47,7 +46,8 @@ public class ResetActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
 		case 1:
-			if(resultCode == RESULT_OK) {
+			Log.v("onActivityResult", "doing");
+			if(resultCode == RESULT_OK) {//problem				
 				Log.v("return", data.getStringExtra("return"));
 				if (data.getStringExtra("return").equals("成功"))
 				  finish();

@@ -52,7 +52,6 @@ public class LifeActivity extends Activity {
 	
 	private Button addPhoto;
 	
-	private Button takePhoto;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,14 +90,14 @@ public class LifeActivity extends Activity {
 			}        	
         });
         
-        takePhoto = (Button) findViewById(R.id.take_photo);
-        takePhoto.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-			}      	
-        });
+//        takePhoto = (Button) findViewById(R.id.take_photo);
+//        takePhoto.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				
+//			}      	
+//        });
         addPhoto = (Button) findViewById(R.id.add_photo);
         addPhoto.setOnClickListener(new OnClickListener() {
 			@Override
@@ -300,10 +299,10 @@ public class LifeActivity extends Activity {
 			Intent intentHistory = new Intent(this, HistoryActivity.class);
 			startActivity(intentHistory);
 			break;
-		case R.id.future_item:
-			Intent intentFuture = new Intent(this, FutureActivity.class);
-			startActivity(intentFuture);
-			break;
+//		case R.id.future_item:
+//			Intent intentFuture = new Intent(this, FutureActivity.class);
+//			startActivity(intentFuture);
+//			break;
 		case R.id.password_item:
 			Intent intentPassword = new Intent(this, SetPasswordActivity.class);
 			startActivity(intentPassword);

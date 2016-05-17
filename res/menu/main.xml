@@ -7,9 +7,7 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/history"/>
-    <item 
-        android:id="@+id/future_item"
-        android:title="@string/future"/>
+    
     <item
         android:id="@+id/password_item"
         android:title="@string/password"/>

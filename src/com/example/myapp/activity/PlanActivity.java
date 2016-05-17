@@ -107,10 +107,10 @@ public class PlanActivity extends Activity implements OnClickListener{
 			Intent intentHistory = new Intent(this, HistoryActivity.class);
 			startActivity(intentHistory);
 			break;
-		case R.id.future_item:
-			Intent intentFuture = new Intent(this, FutureActivity.class);
-			startActivity(intentFuture);
-			break;
+//		case R.id.future_item:
+//			Intent intentFuture = new Intent(this, FutureActivity.class);
+//			startActivity(intentFuture);
+//			break;
 		case R.id.password_item:
 			Intent intentPassword = new Intent(this, SetPasswordActivity.class);
 			startActivity(intentPassword);

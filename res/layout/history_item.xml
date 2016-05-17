@@ -10,8 +10,8 @@
         android:paddingTop="20dp" >  
   
         <ImageView  
-            android:layout_width="80dp"  
-            android:layout_height="80dp"  
+            android:layout_width="60dp"  
+            android:layout_height="60dp"  
             android:layout_centerVertical="true"  
             android:layout_marginLeft="60dp"  
             android:background="@drawable/img_line_point" />  
@@ -25,13 +25,7 @@
             android:textColor="#FC6802" />  
     </RelativeLayout> 
     
-    <View  
-        android:id="@+id/v_line"  
-        android:layout_width="40dp"  
-        android:layout_height="match_parent"  
-        android:layout_marginLeft="100dp"  
-        android:background="#90ee90" />  
-  
+    
     <TextView  
         android:id="@+id/txt_date_content"  
         android:layout_width="wrap_content"  
@@ -40,6 +34,14 @@
         android:layout_marginLeft="150dp"  
         android:paddingBottom="10dp"  
         android:textColor="#5296C5" />  
+    <View  
+        android:id="@+id/v_line"  
+        android:layout_width="10dp"  
+        android:layout_height="wrap_content"  
+        android:layout_toLeftOf="@id/txt_date_content"
+        android:layout_marginLeft="100dp"  
+        android:visibility="visible"
+        android:background="#90ee90" />  
   
     
 
